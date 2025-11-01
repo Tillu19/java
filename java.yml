@@ -1,0 +1,22 @@
+name: Java CI
+
+on: [push, pull_request]   # Run this workflow when code is pushed or PR created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest   # Runner environment
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'   # You can use 8, 11, or 17
+
+      - name: Compile Java program
+        run: javac Addition.java   # Assuming your file is Addition.java
+
+      - name: Run Java program
+        run: java Addition
